@@ -14,8 +14,6 @@
 	<dependencies>
 	</dependencies>
 	
-	
-	
 		<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<resources>
@@ -46,4 +44,7 @@
 	
 		</plugins>
 	</build>
+		<modules>
+			<module>hellospring03</module>
+		</modules>
 </project>
