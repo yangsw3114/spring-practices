@@ -14,17 +14,16 @@ import com.douzone.emaillist.vo.EmaillistVo;
 
 @Controller
 public class EmaillistController {
-	@Autowired
+	@Autowired //필요한 의존 객체의 “타입"에 해당하는 빈을 찾아 주입한다.
 	private EmaillistRepository emaillistRepository;
 	
-	@ResponseBody
+	
 	@RequestMapping("")
 	public String index(Model model) {
 		List<EmaillistVo> list = emaillistRepository.findAll();
 		model.addAttribute("list", list);
 		
-		//System.out.println(emaillistRepository);
-		return "/WEB-INF/views/form.jsp";
+		return "/WEB-INF/views/index.jsp";
 	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.GET)
