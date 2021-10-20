@@ -72,7 +72,7 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<configuration>
 					<url>http://127.0.0.1:8088/manager/text</url>
-					<path>/emaillist01</path>
+					<path>/hellospring03</path>
 					<username>admin</username>
 					<password>manager</password>
 				</configuration>
