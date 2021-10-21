@@ -14,11 +14,10 @@
 	<br><br>
 	
 	<label>파일1:</label>
-	<input type="file" name="file1">
+	<input type="file" name="file">
 	<br><br>
 	
-	<label>파일2:</label>
-	<input type="file" name="file2">
+
 	<br><br>
 	
 	<br>
