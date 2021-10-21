@@ -40,11 +40,12 @@ public class MyAspect {
 		System.out.println("----Around(Before) Advice----");
 		
 		//PointCut Method실행
+		//Object result = pjp.proceed();
+		
 		
 		//파라미터 가로채기
-		Object[] params = {"Canera"};
-		
-		Object result = pjp.proceed();
+		Object[] params = {"Canera"};		
+		Object result = pjp.proceed(params);
 		
 		//after
 		System.out.println("----Around(After) Advice----");

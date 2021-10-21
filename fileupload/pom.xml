@@ -5,14 +5,13 @@
     <artifactId>spring-practices</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>logex</artifactId>
+  <artifactId>fileupload</artifactId>
   <packaging>war</packaging>
   
-   	<properties>
+  
+    	<properties>
   		<org.springframework-version>4.3.4.RELEASE</org.springframework-version>
-  		<jcloverslf4j.version>1.7.6</jcloverslf4j.version>
-		<logback.version>1.1.1</logback.version>
- 	</properties>
+  	</properties>
   
   	<dependencies>
   		<!-- Spring Context(Container) -->
@@ -20,13 +19,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
-			<!-- JCL제외 -->			
-			<exclusions>
-				<exclusion>
-				<groupId>commons-logging</groupId>
-				<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>			
 		</dependency>
 		<!-- Spring MVC -->
 		<dependency>
@@ -48,18 +40,6 @@
 	    	<version>1.2</version>
 		</dependency>
 		
-		<!-- logback(slf4j) -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${jcloverslf4j.version}</version>
-		</dependency>	
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-		
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -76,7 +56,7 @@
 	</dependencies>
 	
 		<build>
-		<finalName>logex</finalName>
+		<finalName>fileupload</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -93,7 +73,7 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<configuration>
 					<url>http://127.0.0.1:8088/manager/text</url>
-					<path>/logex</path>
+					<path>/fileupload</path>
 					<username>admin</username>
 					<password>manager</password>
 				</configuration>
