@@ -17,6 +17,20 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
 		
+	<!-- <mvc:annotation-driven/> 이거있으니 컨트롤러의 단독매핑이 안됨-->
+	
+	<!-- Interceptors -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/board/**" />
+			<bean class="com.douzone.hellospring.interceptor.MyInterceptor01" />
+		</mvc:interceptor>
+		
+				<mvc:interceptor>
+			<mvc:mapping path="/guestbook/**" />
+			<bean class="com.douzone.hellospring.interceptor.MyInterceptor02" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 		
 	<context:annotation-config />
 	<context:component-scan base-package="com.douzone.hellospring.controller" />

@@ -21,7 +21,7 @@ public class GuestbookController {
 	}
 	
 	@ResponseBody
-	@RequestMapping 
+	@RequestMapping
 	public String delete() {
 		return "GuestBookController.delete()";
 	}
