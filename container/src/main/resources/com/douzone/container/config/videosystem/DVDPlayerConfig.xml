@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -45,9 +47,9 @@
 	</bean>
 
 	<!-- 07. 빈설정: 생성자 Collection Argument -->
-	<bean id="avengersDirectorEdition" class="com.douzone.container.videosystem.BlankDisc">
-		<constructor-arg name="title" value="Avengers Director Edition" />
-		<constructor-arg name="studio" value="MARVEL" />
+	<bean id="avengersDirectorEdition" class="com.douzone.container.videosystem.BlankDisc"
+		c:title="Avengers Director Edition"
+		c:studio="MARVEL">
 		<constructor-arg name="actors">
 			<list>
 				<value>Robert Downey Jr.</value>
@@ -56,5 +58,57 @@
 			</list>
 		</constructor-arg>
 	</bean>
+
+	<!-- 08. 빈설정: 생성자 Wiring Collection -->
+	<bean id="avengersTriplepack" class="com.douzone.container.videosystem.DVDPack"
+		c:title="Avengers Triplepack">
+		<constructor-arg name="dvds">
+			<list>
+				<ref bean="avengersInfinityWar" />
+				<ref bean="avengerAgeOfUltron" />
+				<ref bean="avengerEndgame" />
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 09. 빈설정: 프로퍼티를 사용한 빈설정 1 -->
+	<bean id="avengersExpansionEdition1" class="com.douzone.container.videosystem.BlankDisc">
+		<property name="title" value="Avengers Expansion Edition1" />
+		<property name="studio" value="MARVEL" />
+	</bean>		
+
+	<!-- 10. 빈설정: 프로퍼티를 사용한 빈설정 2 -->
+	<bean id="avengersExpansionEdition2" class="com.douzone.container.videosystem.BlankDisc"
+		p:title="Avengers Expansion Edition2"
+		p:studio="MARVEL">
+		<property name="actors">
+			<list>
+				<value>Robert Downey Jr.</value>
+				<value>Scalette</value>
+				<value>Chris Evans</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 11. 빈설정: 프로퍼티를 사용한 빈설정 3 -->
+	<util:list id="actorList">
+		<value>Robert Downey Jr.</value>
+		<value>Scalette</value>
+		<value>Chris Evans</value>
+	</util:list>
+	<bean id="avengersExpansionEdition3" class="com.douzone.container.videosystem.BlankDisc"
+		p:title="Avengers Expansion Edition3"
+		p:studio="MARVEL"
+		p:actors-ref="actorList" />
+
+
+	<!-- 12. 빈주입: 생성자1 -->
+	<bean id="dvdPlayer1" class="com.douzone.container.videosystem.DVDPlayer">
+		<constructor-arg ref="ironMan" />
+	</bean>
+	
+	
+	
+	
 	
 </beans>
