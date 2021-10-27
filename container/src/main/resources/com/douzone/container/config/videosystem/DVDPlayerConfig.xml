@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<!-- 01. 빈설정: 초간단 -->
+	<bean class="com.douzone.container.videosystem.Avengers" />
+
+	<!-- 02. 빈설정: id 부여하기 -->
+	<bean id="ironMan" class="com.douzone.container.videosystem.IronMan" />
+
+	<!-- 03. 빈설정: 생성자 리터럴 사용1 -->
+	<bean id="avengersInfinityWar" class="com.douzone.container.videosystem.BlankDisc">
+		<constructor-arg name="title" value="Avengers Infinity War" />
+		<constructor-arg name="studio" value="MARVEL" />
+	</bean>
+
+	<!-- 04. 빈설정: 생성자 리터럴 사용2 -->
+	<bean id="avengerEndgame" class="com.douzone.container.videosystem.BlankDisc"
+		c:title="Avenger Endgame"
+		c:studio="MARVEL" />
+
+	<!-- 05. 빈설정: 생성자 인덱스 사용 -->
+	<bean id="avengerAgeOfUltron" class="com.douzone.container.videosystem.BlankDisc"
+		c:_1="MARVEL" 
+		c:_0="Avenger Age of Ultron"/>
+
+	<!-- 06. 빈설정: 생성자 null argument -->
+	<bean id="avengersCaptainAmerica" class="com.douzone.container.videosystem.BlankDisc">
+		<constructor-arg name="title" value="Avengers Captain America" />
+		<constructor-arg name="studio" value="MARVEL" />
+		<constructor-arg name="actors"><null/></constructor-arg>
+	</bean>
+
+	<!-- 07. 빈설정: 생성자 Collection Argument -->
+	<bean id="avengersDirectorEdition" class="com.douzone.container.videosystem.BlankDisc">
+		<constructor-arg name="title" value="Avengers Director Edition" />
+		<constructor-arg name="studio" value="MARVEL" />
+		<constructor-arg name="actors">
+			<list>
+				<value>Robert Downey Jr.</value>
+				<value>Scalette</value>
+				<value>Chris Evans</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+</beans>
