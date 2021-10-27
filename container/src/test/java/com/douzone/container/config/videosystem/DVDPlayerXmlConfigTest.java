@@ -68,11 +68,25 @@ public class DVDPlayerXmlConfigTest {
 	@Qualifier("avengersExpansionEdition3")
 	private DigitalVideoDisc dvd10;	
 
-	
 	@Autowired
 	@Qualifier("dvdPlayer1")
 	private DVDPlayer dvdPlayer1;
-	
+
+	@Autowired
+	@Qualifier("dvdPlayer2")
+	private DVDPlayer dvdPlayer2;
+
+	@Autowired
+	@Qualifier("dvdPlayer3")
+	private DVDPlayer dvdPlayer3;
+
+	@Autowired
+	@Qualifier("dvdPlayer4")
+	private DVDPlayer dvdPlayer4;
+
+	@Autowired
+	@Qualifier("dvdPlayer5")
+	private DVDPlayer dvdPlayer5;
 	
 	@Ignore
 	@Test
@@ -134,7 +148,31 @@ public class DVDPlayerXmlConfigTest {
 	@Test
 	public void testPlay1() {
 		dvdPlayer1.play();
-		assertEquals("Playing Movie MAVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPlay2() {
+		dvdPlayer2.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPlay3() {
+		dvdPlayer3.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPlay4() {
+		dvdPlayer4.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPlay5() {
+		dvdPlayer5.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
 	}
 	
 }
