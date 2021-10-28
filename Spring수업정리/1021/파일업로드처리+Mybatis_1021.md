@@ -16,15 +16,25 @@
 
 ### File Upload 전체적인 동작 흐름
 
-spring-servlet.xml에서 Multipart Resolver를 설정한다
+1. spring-servlet.xml에서 Multipart Resolver를 설정한다
 
-Dispatcher Servlert을 통해 doGet(req, resp)이 들어오면 Controller가 Request를 구분한다
+2.  spring-servlet.xml에 mvc url resource mapping 매핑설정을 한다.
 
-Controller의 메소드를 부르기전에 @RequestParam 어노테이션에서 file이라는 파라미터가 있는지 확인한다
+   >  <mvc:resources mapping="/upload/images/**" location="file:/upload-mysite/" />
 
-common-fileupload 라이브러리의 file 부분과 매핑하여 값이 있으면 MultiparfFile 변수에 담는다
+   (사용자가 선택하는 URL을 이용하여 내 컴퓨터에 저장된 경로의 이미지 파일을 불러온다.)
 
-MultipartFile 파라미터가 여러 개일 경우 MultipartFile[]로 담는다
+   ![image-20211027200758275](img/image-20211027200758275.png)
+
+   
+
+3. Dispatcher Servlert을 통해 doGet(req, resp)이 들어오면 Controller가 Request를 구분한다
+
+4. Controller의 메소드를 부르기전에 @RequestParam 어노테이션에서 file이라는 파라미터가 있는지 확인한다
+
+5. common-fileupload 라이브러리의 file 부분과 매핑하여 값이 있으면 MultiparfFile 변수에 담는다
+
+6. MultipartFile 파라미터가 여러 개일 경우 MultipartFile[]로 담는다
 
 ```jsx
 @Controller
@@ -69,7 +79,7 @@ MultipartFile 파라미터가 여러 개일 경우 MultipartFile[]로 담는다
 
 
 
-2. spring-servlet.xml에 MultipartResolver 설정 +mvc url resource mapping
+2. spring-servlet.xml에 MultipartResolver 설정 +**mvc url resource mapping**
 
 ```xml
 <!-- Multipart Resolver -->
@@ -558,7 +568,7 @@ public class GuestbookRepository {
 ```
 
 - 	@Autowired
-  	private SqlSession sqlSession; 
+    	private SqlSession sqlSession; 
 
   : 무조건 선언해주어야 한다.
 
